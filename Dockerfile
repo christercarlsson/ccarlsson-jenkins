@@ -6,7 +6,7 @@ USER root
 
 RUN uname -a && cat /etc/*release
 
-# Based on instructiions at https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x
+# Based on instructions at https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x
 # Install depency for dotnet core 2.
 RUN apt-get update `
     && apt-get install -y --no-install-recommends `
@@ -23,4 +23,6 @@ RUN apt-get install -y dotnet-sdk-2.1 && `
 
 # Switch back to the jenkins user.
 USER jenkins
+
+# docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home ccarlsson/jenkins:latest
 
